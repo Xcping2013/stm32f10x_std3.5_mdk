@@ -1,0 +1,13 @@
+.\build\print.o: ..\..\util\print.cpp
+.\build\print.o: D:\Keil\MDK\ARM\ARMCC\Bin\..\include\stdlib.h
+.\build\print.o: D:\Keil\MDK\ARM\ARMCC\Bin\..\include\stdio.h
+.\build\print.o: D:\Keil\MDK\ARM\ARMCC\Bin\..\include\string.h
+.\build\print.o: D:\Keil\MDK\ARM\ARMCC\Bin\..\include\math.h
+.\build\print.o: ..\..\util\Print.h
+.\build\print.o: D:\Keil\MDK\ARM\ARMCC\Bin\..\include\inttypes.h
+.\build\print.o: D:\Keil\MDK\ARM\ARMCC\Bin\..\include\stdint.h
+.\build\print.o: ..\..\util\WString.h
+.\build\print.o: D:\Keil\MDK\ARM\ARMCC\Bin\..\include\ctype.h
+.\build\print.o: ..\..\util\itoa.h
+.\build\print.o: ..\..\util\dtostrf.h
+.\build\print.o: ..\..\util\Printable.h

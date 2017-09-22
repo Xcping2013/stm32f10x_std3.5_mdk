@@ -1,0 +1,81 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.23.0.0
+Copyright (C) 2017 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: 1111 1111, 1111, LIC=LJWBS-LHPYS-66JQS-LCJE3-0UQXX-6F4US
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Professional  Version: 5.23
+Toolchain Path:  D:\Keil\MDK\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 4 (build 422)
+Assembler:       Armasm.exe V5.06 update 4 (build 422)
+Linker/Locator:  ArmLink.exe V5.06 update 4 (build 422)
+Library Manager: ArmAr.exe V5.06 update 4 (build 422)
+Hex Converter:   FromElf.exe V5.06 update 4 (build 422)
+CPU DLL:         SARMCM3.DLL V5.23
+Dialog DLL:      DARMSTM.DLL V1.68.0.0
+Target DLL:      UL2CM3.DLL V1.159.7.0
+Dialog DLL:      TARMSTM.DLL V1.66.0.0
+ 
+<h2>Project:</h2>
+E:\MyCode\stm32f10x_std3.5_mdk\NoRTOS_cmd_str\user\myStr.uvprojx
+Project File Date:  09/22/2017
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 4 (build 422)', folder: 'D:\Keil\MDK\ARM\ARMCC\Bin'
+Build target 'myStr'
+compiling user_cmd_fun.c...
+..\cmd\user_cmd_fun.c(153): warning:  #223-D: function "strtol" declared implicitly
+  		u8 channel=strtol(s, &p, 10);	
+..\cmd\user_cmd_fun.c(171): warning:  #940-D: missing return statement at end of non-void function "CMD_int" 
+  }
+..\cmd\user_cmd_fun.c(179): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  			Out.writeAll(&Commands[5]);
+..\cmd\user_cmd_fun.c(189): warning:  #223-D: function "strtol" declared implicitly
+  		u8 channel=strtol(s, &p, 10);	
+..\cmd\user_cmd_fun.c(214): warning:  #940-D: missing return statement at end of non-void function "CMD_out" 
+  }
+..\cmd\user_cmd_fun.c(257): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "u8 *"
+  		at24cxx.write(at24c256, 0, &Commands[3], strlen(&Commands[3]));
+..\cmd\user_cmd_fun.c(272): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "u8 *"
+  			at24cxx.write(at24c256, 0, &Commands[4], strlen(&Commands[4]));
+..\cmd\user_cmd_fun.c(279): warning:  #940-D: missing return statement at end of non-void function "CMD_fsn" 
+  }
+..\cmd\user_cmd_fun.c(289): warning:  #223-D: function "strtol" declared implicitly
+  		DataNum=strtol(s, &p, 10);	
+..\cmd\user_cmd_fun.c(293): warning:  #223-D: function "strtod" declared implicitly
+  			DataSet=strtod(p+2, &s);			
+..\cmd\user_cmd_fun.c(297): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "u8 *"
+  				at24cxx.write(at24c256,DataNum*64,p+2,strlen(p+2));
+..\cmd\user_cmd_fun.c(287): warning:  #550-D: variable "DataSet"  was set but never used
+  		u8 DataSet;		
+..\cmd\user_cmd_fun.c(311): warning:  #223-D: function "strtol" declared implicitly
+  		DataNum=strtol(s, &p, 10);	
+..\cmd\user_cmd_fun.c(326): warning:  #940-D: missing return statement at end of non-void function "CMD_rom" 
+  }
+..\cmd\user_cmd_fun.c(335): warning:  #223-D: function "strtol" declared implicitly
+  		PageNum=strtol(s, &p, 10);	
+..\cmd\user_cmd_fun.c(339): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "u8 *"
+  			at24cxx.write(at24c256,(PageNum+100)*64,p+1,64);
+..\cmd\user_cmd_fun.c(353): warning:  #223-D: function "strtol" declared implicitly
+  		PageNum=strtol(s, &p, 10);	
+..\cmd\user_cmd_fun.c(369): warning:  #940-D: missing return statement at end of non-void function "CMD_RomPage" 
+  }
+..\cmd\user_cmd_fun.c: 18 warnings, 0 errors
+linking...
+Program Size: Code=29576 RO-data=1092 RW-data=1276 ZI-data=5932  
+FromELF: creating hex file...
+"..\OBJ\MB1616007_B235.axf" - 0 Error(s), 18 Warning(s).
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_myStr
+  D:\Keil\MDK\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+Build Time Elapsed:  00:00:05
+</pre>
+</body>
+</html>
