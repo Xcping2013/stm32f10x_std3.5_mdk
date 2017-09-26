@@ -1,171 +1,197 @@
 #include "TM1638.h"
-#include "spi.h"
 #include "delay.h"
+#include "string.h"
 
-#define TM1638_CS	PBout(12)
+uint32_t showNum[10]={C7_0,C7_1,C7_2,C7_3,C7_4,C7_5,C7_6,C7_7,C7_8,C7_9};
 
-typedef char DisplayData_t[TM1638_DISPLAY_MEM];
-char _display;
-char _bright; 
+static void tm1638_init(tm1638_t dev);
 
-/** Helper to reverse all command or databits. The TM1638 expects LSB first, whereas SPI is MSB first
-  *  @param  char data
-  *  @return bitreversed data
-  */ 
-#if(1)
-char TM1638_flip(char data) 
+static void tm1638_writeByte(tm1638_t dev, uint8_t DATA);
+static void tm1638_writeCmd(tm1638_t dev, int cmd, int data );
+
+static void tm1638_setBrightness(tm1638_t dev, char brightness);
+static void TM1638_setDisplay(tm1638_t dev, u8 on);
+static void tm1638_writeData(tm1638_t dev, char data, int address);
+static void tm1638_cls(tm1638_t dev);
+static void tm1638_show(tm1638_t dev, char *data);
+
+static uint8_t 	tm1638_readByte(tm1638_t dev);
+static uint16_t tm1638_readkey(tm1638_t dev);
+
+tm1638_t tm1638_8bit=
 {
- char value=0;
-  
- if (data & 0x01) {value |= 0x80;} ;  
- if (data & 0x02) {value |= 0x40;} ;
- if (data & 0x04) {value |= 0x20;} ;
- if (data & 0x08) {value |= 0x10;} ;
- if (data & 0x10) {value |= 0x08;} ;
- if (data & 0x20) {value |= 0x04;} ;
- if (data & 0x40) {value |= 0x02;} ;
- if (data & 0x80) {value |= 0x01;} ;
- return value;       
-}
-#else
-char TM1638_flip(char data) 
+	&PE12,
+	&PE14,
+	&PE15,
+	
+	TM1638_BRT_DEF,
+	TM1638_DSP_ON,
+};
+//
+TM1638_DrvTypeDef	tm1638=
 {
- data   = (((data & 0xAA) >> 1) | ((data & 0x55) << 1));
- data   = (((data & 0xCC) >> 2) | ((data & 0x33) << 2));
- return   (((data & 0xF0) >> 4) | ((data & 0x0F) << 4));
-}
-#endif
+	tm1638_init,
+	tm1638_readkey,
+	tm1638_show,
+};
 
-
-void SPI2_WriteByte(u8 TxData)
+static void tm1638_init(tm1638_t dev)
 {
-	u8 TxTemp[1];
-	TxTemp[0]=TxData;
-	HAL_SPI_Transmit(&hspi2,&TxTemp[0],1,5);
+	pinMode(dev.dio_pin, GPIO_Mode_Out_PP);
+	pinMode(dev.clk_pin, GPIO_Mode_Out_PP);
+	pinMode(dev.stb_pin, GPIO_Mode_Out_PP);
+
+	pinWrite( dev.dio_pin , HIGH);
+	pinWrite( dev.clk_pin , HIGH);
+	pinWrite( dev.stb_pin , HIGH);
+	
+  tm1638_writeCmd(dev, TM1638_DSP_CTRL_CMD, dev.display | dev.bright );                           // Display control cmd, display on/off, brightness   
+  tm1638_writeCmd(dev, TM1638_DATA_SET_CMD, TM1638_DATA_WR | TM1638_ADDR_FIXED | TM1638_MODE_NORM); // Data set cmd, normal mode, auto incr, write data  
+	
+	tm1638_cls(dev);
 }
-/** Write command and parameter to TM1638
-  *  @param  int cmd Command byte
-  *  &Param  int data Parameters for command
-  *  @return none
-  */  
-void TM1638_writeCmd(int cmd, int data)
-{   
-  TM1638_CS=0;
-  delay_us(1);      
-  SPI2_WriteByte(TM1638_flip( (cmd & TM1638_CMD_MSK) | (data & ~TM1638_CMD_MSK)));   
-  delay_us(1);
-  TM1638_CS=1;          
+
+//shift_out(data_pin,sck_pin,bit_oder,Cmd);
+static void tm1638_writeByte(tm1638_t dev, uint8_t DATA)
+{
+    uint8_t i;
+		pinMode(dev.dio_pin, GPIO_Mode_Out_PP);
+    for(i = 0; i < 8; i++)
+    {
+        pinWrite( dev.clk_pin , LOW);
+        delay_us(1);
+        if(DATA & 0X01)
+            pinWrite( dev.dio_pin , HIGH);
+        else
+            pinWrite( dev.dio_pin , LOW);
+        DATA >>= 1;
+        delay_us(1);
+        pinWrite( dev.clk_pin , HIGH);
+        delay_us(1);
+    }
+}
+static void tm1638_writeCmd(tm1638_t dev, int cmd, int data )
+{
+    pinWrite( dev.stb_pin , LOW);
+    delay_us(1);
+    tm1638_writeByte(dev, (cmd & TM1638_CMD_MSK) | (data & ~TM1638_CMD_MSK));
+    pinWrite(dev.stb_pin , HIGH);
 }
 /** Write databyte to TM1638
   *  @param  char data byte written at given address
   *  @param  int address display memory location to write byte
   *  @return none
   */ 
-void TM1638_writeByte(char data, int address)
+static void tm1638_writeData(tm1638_t dev, char data, int address)
 {
-  TM1638_CS=0;
+  pinWrite( dev.stb_pin , LOW);
   delay_us(1);    
-  SPI2_WriteByte(TM1638_flip(TM1638_ADDR_SET_CMD | (address & TM1638_ADDR_MSK))); // Set Address cmd
-      
-  SPI2_WriteByte(TM1638_flip(data)); // data 
-  
+  tm1638_writeByte(dev, TM1638_ADDR_SET_CMD | (address & TM1638_ADDR_MSK)); // Set Address cmd    
+  tm1638_writeByte(dev, data); // data 
   delay_us(1);
-  TM1638_CS=1;             
-}
-/** Write Display datablock to TM1638
-  *  @param  DisplayData_t data Array of TM1638_DISPLAY_MEM (=16) bytes for displaydata
-  *  @param  length number bytes to write (valid range 0..TM1638_DISPLAY_MEM (=16), when starting at address 0)
-  *  @param  int address display memory location to write bytes (default = 0)   
-  *  @return none
-  */ 
-void TM1638_writeBytes(DisplayData_t data, int length, int address)
-{
-	int idx;
-  TM1638_CS=0;
-  delay_us(1);    
-       
-// sanity check
-  address &= TM1638_ADDR_MSK;
-  if (length < 0) {length = 0;}
-  if ((length + address) > TM1638_DISPLAY_MEM) {length = (TM1638_DISPLAY_MEM - address);}
-  SPI2_WriteByte(TM1638_flip(TM1638_ADDR_SET_CMD | address)); // Set Address
-
-  for (idx=0; idx<length; idx++) 
-	{    
-    SPI2_WriteByte(TM1638_flip(data[address + idx])); // data 
-  }
-  
-  delay_us(1);
-  TM1638_CS=1;             
+  pinWrite( dev.stb_pin , HIGH);            
 }
 /** Set Brightness
   *
   * @param  char brightness (3 significant bits, valid range 0..7 (1/16 .. 14/14 dutycycle)  
   * @return none
   */
-void TM1638_setBrightness(char brightness)
+static void tm1638_setBrightness(tm1638_t dev, char brightness)
 {
-  _bright = brightness & TM1638_BRT_MSK; // mask invalid bits
-  
-  TM1638_writeCmd(TM1638_DSP_CTRL_CMD, _display | _bright );  // Display control cmd, display on/off, brightness  
+	dev.bright = brightness & TM1638_BRT_MSK; // mask invalid bits
+	tm1638_writeCmd(dev, TM1638_DSP_CTRL_CMD, dev.display | dev.bright );
 }
-
-
 /** Set the Display mode On/off
   *
   * @param bool display mode
   */
-void TM1638_setDisplay(u8 on)
+static void TM1638_setDisplay(tm1638_t dev, u8 on)
 {
-  if (on)
+	if (on) 
 	{
-    _display = TM1638_DSP_ON;
+    dev.display = TM1638_DSP_ON;
   }
-  else {
-    _display = TM1638_DSP_OFF;
+  else 
+	{
+    dev.display = TM1638_DSP_OFF;
   }
-  
-  TM1638_writeCmd(TM1638_DSP_CTRL_CMD, _display | _bright );  // Display control cmd, display on/off, brightness   
+   tm1638_writeCmd(dev, TM1638_DSP_CTRL_CMD, dev.display | dev.bright );  // Display control cmd, display on/off, brightness   
 }
-/** Init the SPI interface and the controller
-  * @param  none
-  * @return none
-  */ 
-
-void TM1638_Init(void)
+static uint8_t tm1638_readByte(tm1638_t dev)
 {
-	TM1638_CS=1;
-	//TM1638 uses mode 3 (Clock High on Idle, Data latched on second (=rising) edge)
-	//500khz
-	//init controller  
-  _display = TM1638_DSP_ON;
-  _bright  = TM1638_BRT_DEF; 
-  TM1638_writeCmd(TM1638_DSP_CTRL_CMD, _display | _bright );                                 // Display control cmd, display on/off, brightness   
-  
-  TM1638_writeCmd(TM1638_DATA_SET_CMD, TM1638_DATA_WR | TM1638_ADDR_INC | TM1638_MODE_NORM); // Data set cmd, normal mode, auto incr, write data  
+    uint8_t ReadValue = 0;
+    uint8_t i;
+		pinMode(dev.dio_pin, GPIO_Mode_IPU);
+    for(i = 0; i < 8; i++)
+    {
+        pinWrite( dev.clk_pin , LOW);
+        ReadValue = ReadValue << 1;
+        delay_us(1);
+        ReadValue |= pinRead(dev.dio_pin);
+        pinWrite(dev.clk_pin , HIGH);
+        delay_us(1);
+    }
+    return ReadValue;
 }
+
+static uint16_t tm1638_readkey(tm1638_t dev)
+{
+    uint8_t c[4], i;
+    uint16_t key_value = 0;
+    pinWrite( dev.stb_pin , LOW);
+    delay_us(1);
+    tm1638_writeByte(dev, TM1638_DATA_SET_CMD|TM1638_KEY_RD);
+    delay_us(1);
+    for(i = 0; i < 4; i++)
+        c[i] = tm1638_readByte(dev);
+    delay_us(1);
+    pinMode(dev.dio_pin, GPIO_Mode_Out_PP);
+    delay_us(1);
+    pinWrite( dev.stb_pin , HIGH);					//4个字节数据合成一个字节
+//    key_value = c[1];
+//    key_value = ((key_value) << 8) | c[0];
+		key_value= (c[3]<<12)	| (c[2]<< 8) | (c[1]<< 4) | c[0];
+    return key_value;
+}
+
+
+
 /** Clear the screen and locate to 0
  */  
-void TM1638_cls(void) 
+static void tm1638_cls(tm1638_t dev)
 {
-	int cnt;
-  TM1638_CS=0;
-  delay_us(1);    
-  SPI2_WriteByte(TM1638_flip(TM1638_ADDR_SET_CMD | 0x00)); // Address set cmd, 0
-      
-  for (cnt=0; cnt<TM1638_DISPLAY_MEM; cnt++)
-	{
-    SPI2_WriteByte(0x00); // data 
-  }
+  pinWrite( dev.stb_pin , LOW);
+  delay_us(1); 
+	
+  tm1638_writeByte(dev, TM1638_ADDR_SET_CMD | 0x00); // Address set cmd, 0
+	
+	tm1638_writeData(dev, 0, 0);
+	tm1638_writeData(dev, 0, 2);
+	tm1638_writeData(dev, 0, 4);
+	tm1638_writeData(dev, 0, 6);
+	tm1638_writeData(dev, 0, 8);
+	tm1638_writeData(dev, 0, 10);
+	tm1638_writeData(dev, 0, 12);
+	tm1638_writeData(dev, 0, 14);
+	
   delay_us(1);
-  TM1638_CS=1;      
-}   
-//
-void DispalyInit(void)
+  pinWrite( dev.stb_pin , HIGH);  
+} 
+
+static void tm1638_show(tm1638_t dev, char *data)
 {
-	TM1638_Init();
-	TM1638_cls();
+	u8 i;
+	u8 len=strlen(data);
+	if(len>0 && len<9 )
+	{
+		for(i=len;i>0;i--)
+		{
+			tm1638_writeData(dev, showNum[(data[i-1]-'0')], (len-i)*2);
+		}	
+		for(i=len;i<8;i++)
+		{
+			tm1638_writeData(dev, 0, i*2);
+		}	
+	}
 }
-
-
 

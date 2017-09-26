@@ -10,10 +10,3 @@
 .\build\can.o: ..\..\include\rtthread.h
 .\build\can.o: ..\..\components\drivers\include\rtdevice.h
 .\build\can.o: ..\..\components\drivers\include\drivers/serial.h
-.\build\can.o: ..\..\components\drivers\include\drivers/pin.h
-.\build\can.o: ..\..\components\drivers\include\rtdevice.h
-.\build\can.o: ..\..\components\drivers\include\drivers/can.h
-.\build\can.o: ..\..\components\finsh\finsh.h
-.\build\can.o: D:\Keil\MDK\ARM\ARMCC\Bin\..\include\ctype.h
-.\build\can.o: D:\Keil\MDK\ARM\ARMCC\Bin\..\include\stdlib.h
-.\build\can.o: D:\Keil\MDK\ARM\ARMCC\Bin\..\include\string.h

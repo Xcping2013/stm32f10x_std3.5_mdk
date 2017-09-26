@@ -41,6 +41,3 @@
 .\build\usart.o: drivers\board.h
 .\build\usart.o: ..\..\components\drivers\include\rtdevice.h
 .\build\usart.o: ..\..\components\drivers\include\drivers/serial.h
-.\build\usart.o: ..\..\components\drivers\include\drivers/pin.h
-.\build\usart.o: ..\..\components\drivers\include\rtdevice.h
-.\build\usart.o: ..\..\components\drivers\include\drivers/can.h

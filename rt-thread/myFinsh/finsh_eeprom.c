@@ -1,10 +1,6 @@
-#include <rtthread.h>
-#include <finsh.h>
-#include <stdio.h>
+#include "finsh_cmd.h"
 
-#include "at24cxx.h"
-#include "mcu_softI2c.h"
-#include "delay.h"
+#ifdef AT24CXX_USED
 
 IIC_GPIO at2404_pin=
 {
@@ -112,3 +108,5 @@ FINSH_FUNCTION_EXPORT(eeprom_init, 		eeprom init)
 FINSH_FUNCTION_EXPORT(at24c256_read,	at24c256 read)
 FINSH_FUNCTION_EXPORT(at24c256_write,	at24c256 write)
 //
+#endif
+

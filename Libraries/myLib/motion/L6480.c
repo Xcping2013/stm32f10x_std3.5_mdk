@@ -19,6 +19,21 @@
 #define PRINT_REG(...)
 #endif
 
+
+
+L6480_t	L6480s=
+{
+	&PB12,
+	SPI2,
+	SPI_MODE3,
+	SPI_CLOCK_DIV16,				//设置为18M时钟,高速模式
+	SPI_BITODER_MSB,
+	&PD10,
+	&PD8,
+	&PD9,
+	1,
+};
+
 /*	小延时
 */
 void L6480_Delay(__IO uint32_t nCount)

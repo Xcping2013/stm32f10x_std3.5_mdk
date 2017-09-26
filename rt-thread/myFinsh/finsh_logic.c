@@ -1,9 +1,5 @@
-#include <rtthread.h>
-#include <finsh.h>
-#include <stdio.h>
-
-#include "74HC165.h"
-#include "74HC595.h"
+#include "finsh_cmd.h"
+#ifdef LOGIC_USED
 
 char data_in[16] = {0};
 u8 hc165_in	=0;
@@ -212,4 +208,5 @@ FINSH_FUNCTION_EXPORT(readPin, read input[1 - 16] on[1] or off[0].)
 FINSH_FUNCTION_EXPORT(readPins, read inputs[16] on[1] or off[0].)
 FINSH_FUNCTION_EXPORT(writePin, write output[1 - 16] on[1] or off[0].)
 FINSH_FUNCTION_EXPORT(writePins, write outputs on["1"] or off["0"].)
+#endif
 

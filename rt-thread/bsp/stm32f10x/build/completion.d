@@ -10,6 +10,3 @@
 .\build\completion.o: ..\..\include\rtthread.h
 .\build\completion.o: ..\..\components\drivers\include\rtdevice.h
 .\build\completion.o: ..\..\components\drivers\include\drivers/serial.h
-.\build\completion.o: ..\..\components\drivers\include\drivers/pin.h
-.\build\completion.o: ..\..\components\drivers\include\rtdevice.h
-.\build\completion.o: ..\..\components\drivers\include\drivers/can.h

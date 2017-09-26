@@ -1,8 +1,6 @@
-#include <rtthread.h>
-#include <finsh.h>
-#include <stdio.h>  
-#include "isl29125.h"
-#include <delay.h>  
+#include "finsh_cmd.h"
+
+#ifdef ISL29125_USED
 
 #define IN3_EARPHONE_V12 0
 isl29125_t rgbSensor1=
@@ -98,3 +96,4 @@ void rgbSensor_loop(u8 time)
 
 FINSH_FUNCTION_EXPORT(rgbSensor_init,.)
 FINSH_FUNCTION_EXPORT(rgbSensor_loop,.)
+#endif

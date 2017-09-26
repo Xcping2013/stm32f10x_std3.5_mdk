@@ -1,8 +1,7 @@
-#include <rtthread.h>
-#include <finsh.h>
-#include <stdio.h>  
-#include "mcu_spi.h"
-#include "w25qxx.h" 
+#include "finsh_cmd.h"
+
+#ifdef W25QXX_USED
+
 //W25Q32 1K(1024)¸ö   sector(4KB)	= 16Pages (256B)  4MB/100 =1024*1024B/100>10000
 SPI_CONFIG_TYPE	w25q32_spi_config=
 {
@@ -58,4 +57,6 @@ static void Flash_read(uint16_t Addr)
 }
 FINSH_FUNCTION_EXPORT_ALIAS(Flash_write, save, read info 1~10000 max to 100Bytes.)
 FINSH_FUNCTION_EXPORT_ALIAS(Flash_read, read,	save info 1~10000 max to 100Bytes.)
+
+#endif
 

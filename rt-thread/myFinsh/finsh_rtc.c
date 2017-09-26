@@ -1,7 +1,6 @@
-#include "mcu_rtc.h"
-#include "Calendar.h"
-#include <rtthread.h>
-#include <finsh.h>
+#include "finsh_cmd.h"
+
+#ifdef CALENDAR_USED
 
 void rtc_sec_sendMessage1(void);
 void rtc_alarm_sendMessage1(void);
@@ -86,3 +85,4 @@ void calendar_app(void)
 FINSH_FUNCTION_EXPORT(rtc_basic,.)
 FINSH_FUNCTION_EXPORT(rtc_clock,.)
 FINSH_FUNCTION_EXPORT(calendar_app,.)
+#endif

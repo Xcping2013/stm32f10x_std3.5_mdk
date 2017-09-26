@@ -1,4 +1,5 @@
-.\build\finsh_temp_sensor.o: ..\..\myRTT\finsh_temp_sensor.c
+.\build\finsh_temp_sensor.o: ..\..\myFinsh\finsh_temp_sensor.c
+.\build\finsh_temp_sensor.o: ..\..\myFinsh\finsh_cmd.h
 .\build\finsh_temp_sensor.o: ..\..\include\rtthread.h
 .\build\finsh_temp_sensor.o: .\rtconfig.h
 .\build\finsh_temp_sensor.o: ..\..\include\rtdebug.h
@@ -12,7 +13,7 @@
 .\build\finsh_temp_sensor.o: D:\Keil\MDK\ARM\ARMCC\Bin\..\include\stdlib.h
 .\build\finsh_temp_sensor.o: D:\Keil\MDK\ARM\ARMCC\Bin\..\include\string.h
 .\build\finsh_temp_sensor.o: D:\Keil\MDK\ARM\ARMCC\Bin\..\include\stdio.h
-.\build\finsh_temp_sensor.o: ..\..\..\Libraries\myLib\sensor\ds18b20.h
+.\build\finsh_temp_sensor.o: ..\..\..\Libraries\myLib\bsp\delay.h
 .\build\finsh_temp_sensor.o: ..\..\..\Libraries\myLib\bsp\sys.h
 .\build\finsh_temp_sensor.o: ..\..\..\Libraries\stm32f10x_Libraries\stm32f10x.h
 .\build\finsh_temp_sensor.o: ..\..\..\Libraries\stm32f10x_Libraries\core_cm3.h
@@ -44,3 +45,4 @@
 .\build\finsh_temp_sensor.o: ..\..\..\Libraries\stm32f10x_Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\build\finsh_temp_sensor.o: ..\..\..\Libraries\stm32f10x_Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\build\finsh_temp_sensor.o: ..\..\..\Libraries\myLib\peripherals\mcu_gpio.h
+.\build\finsh_temp_sensor.o: ..\..\..\Libraries\myLib\LedDriver\tm1638.h

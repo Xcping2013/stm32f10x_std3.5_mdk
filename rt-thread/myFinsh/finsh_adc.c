@@ -1,10 +1,6 @@
-#include <rtthread.h>
-#include <finsh.h>
-#include <stdio.h>
+#include "finsh_cmd.h"
 
-#include "delay.h"
-#include "MCP3421.h"
-
+#ifdef MCP3421_USED
 mcp3421_t adc1=
 {
 	&PA0,
@@ -90,4 +86,6 @@ void getUSBCurrent(void)
 	
 }
 FINSH_FUNCTION_EXPORT(getUSBCurrent, get usb current.)
+
+#endif
 

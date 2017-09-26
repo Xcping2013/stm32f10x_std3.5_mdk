@@ -10,6 +10,3 @@
 .\build\serial.o: ..\..\include\rtthread.h
 .\build\serial.o: ..\..\components\drivers\include\rtdevice.h
 .\build\serial.o: ..\..\components\drivers\include\drivers/serial.h
-.\build\serial.o: ..\..\components\drivers\include\drivers/pin.h
-.\build\serial.o: ..\..\components\drivers\include\rtdevice.h
-.\build\serial.o: ..\..\components\drivers\include\drivers/can.h

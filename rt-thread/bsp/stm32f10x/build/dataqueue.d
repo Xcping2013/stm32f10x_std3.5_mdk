@@ -9,7 +9,4 @@
 .\build\dataqueue.o: ..\..\include\rtthread.h
 .\build\dataqueue.o: ..\..\components\drivers\include\rtdevice.h
 .\build\dataqueue.o: ..\..\components\drivers\include\drivers/serial.h
-.\build\dataqueue.o: ..\..\components\drivers\include\drivers/pin.h
-.\build\dataqueue.o: ..\..\components\drivers\include\rtdevice.h
-.\build\dataqueue.o: ..\..\components\drivers\include\drivers/can.h
 .\build\dataqueue.o: ..\..\include\rthw.h

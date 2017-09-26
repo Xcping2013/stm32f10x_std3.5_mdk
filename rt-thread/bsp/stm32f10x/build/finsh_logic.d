@@ -1,4 +1,5 @@
-.\build\finsh_logic.o: ..\..\myRTT\finsh_logic.c
+.\build\finsh_logic.o: ..\..\myFinsh\finsh_logic.c
+.\build\finsh_logic.o: ..\..\myFinsh\finsh_cmd.h
 .\build\finsh_logic.o: ..\..\include\rtthread.h
 .\build\finsh_logic.o: .\rtconfig.h
 .\build\finsh_logic.o: ..\..\include\rtdebug.h
@@ -12,7 +13,7 @@
 .\build\finsh_logic.o: D:\Keil\MDK\ARM\ARMCC\Bin\..\include\stdlib.h
 .\build\finsh_logic.o: D:\Keil\MDK\ARM\ARMCC\Bin\..\include\string.h
 .\build\finsh_logic.o: D:\Keil\MDK\ARM\ARMCC\Bin\..\include\stdio.h
-.\build\finsh_logic.o: ..\..\..\Libraries\myLib\Logic\74HC165.h
+.\build\finsh_logic.o: ..\..\..\Libraries\myLib\bsp\delay.h
 .\build\finsh_logic.o: ..\..\..\Libraries\myLib\bsp\sys.h
 .\build\finsh_logic.o: ..\..\..\Libraries\stm32f10x_Libraries\stm32f10x.h
 .\build\finsh_logic.o: ..\..\..\Libraries\stm32f10x_Libraries\core_cm3.h
@@ -44,4 +45,4 @@
 .\build\finsh_logic.o: ..\..\..\Libraries\stm32f10x_Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\build\finsh_logic.o: ..\..\..\Libraries\stm32f10x_Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\build\finsh_logic.o: ..\..\..\Libraries\myLib\peripherals\mcu_gpio.h
-.\build\finsh_logic.o: ..\..\..\Libraries\myLib\Logic\74HC595.h
+.\build\finsh_logic.o: ..\..\..\Libraries\myLib\LedDriver\tm1638.h

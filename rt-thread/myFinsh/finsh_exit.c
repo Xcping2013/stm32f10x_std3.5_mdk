@@ -1,6 +1,6 @@
-#include <rtthread.h>
-#include <finsh.h>
-#include "mcu_exit.h"
+#include "finsh_cmd.h"
+
+#ifdef EXIT_USED
 
 void cylinder_set(char* cylinder);
 void cylinder_reset(char* cylinder);
@@ -34,3 +34,4 @@ void exit_start(void)
 
 FINSH_FUNCTION_EXPORT(exit_start,.)
 
+#endif

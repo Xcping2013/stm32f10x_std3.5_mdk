@@ -1,4 +1,5 @@
-.\build\finsh_eeprom.o: ..\..\myRTT\finsh_eeprom.c
+.\build\finsh_eeprom.o: ..\..\myFinsh\finsh_eeprom.c
+.\build\finsh_eeprom.o: ..\..\myFinsh\finsh_cmd.h
 .\build\finsh_eeprom.o: ..\..\include\rtthread.h
 .\build\finsh_eeprom.o: .\rtconfig.h
 .\build\finsh_eeprom.o: ..\..\include\rtdebug.h
@@ -12,7 +13,7 @@
 .\build\finsh_eeprom.o: D:\Keil\MDK\ARM\ARMCC\Bin\..\include\stdlib.h
 .\build\finsh_eeprom.o: D:\Keil\MDK\ARM\ARMCC\Bin\..\include\string.h
 .\build\finsh_eeprom.o: D:\Keil\MDK\ARM\ARMCC\Bin\..\include\stdio.h
-.\build\finsh_eeprom.o: ..\..\..\Libraries\myLib\eeprom\at24cxx.h
+.\build\finsh_eeprom.o: ..\..\..\Libraries\myLib\bsp\delay.h
 .\build\finsh_eeprom.o: ..\..\..\Libraries\myLib\bsp\sys.h
 .\build\finsh_eeprom.o: ..\..\..\Libraries\stm32f10x_Libraries\stm32f10x.h
 .\build\finsh_eeprom.o: ..\..\..\Libraries\stm32f10x_Libraries\core_cm3.h
@@ -44,5 +45,4 @@
 .\build\finsh_eeprom.o: ..\..\..\Libraries\stm32f10x_Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\build\finsh_eeprom.o: ..\..\..\Libraries\stm32f10x_Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\build\finsh_eeprom.o: ..\..\..\Libraries\myLib\peripherals\mcu_gpio.h
-.\build\finsh_eeprom.o: ..\..\..\Libraries\myLib\peripherals\mcu_softI2c.h
-.\build\finsh_eeprom.o: ..\..\..\Libraries\myLib\bsp\delay.h
+.\build\finsh_eeprom.o: ..\..\..\Libraries\myLib\LedDriver\tm1638.h

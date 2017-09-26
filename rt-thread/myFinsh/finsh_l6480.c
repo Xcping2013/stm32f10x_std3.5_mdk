@@ -1,21 +1,6 @@
-#include <rtthread.h>
-#include <finsh.h>
+#include "finsh_cmd.h"
 
-#include "l6480_config.h"
-#include "l6480.h"
-
-L6480_t	L6480s=
-{
-	&PB12,
-	SPI2,
-	SPI_MODE3,
-	SPI_CLOCK_DIV16,				//设置为18M时钟,高速模式
-	SPI_BITODER_MSB,
-	&PD10,
-	&PD8,
-	&PD9,
-	1,
-};
+#ifdef L6480_USED
 
 L6480_RegsStruct_TypeDef MotorConfig[N_O_MOTORS];
 
@@ -187,3 +172,5 @@ FINSH_FUNCTION_EXPORT_ALIAS(L6480s_Stop,stop, .)
 
 FINSH_FUNCTION_EXPORT_ALIAS(L6480s_Set,set, .)
 FINSH_FUNCTION_EXPORT_ALIAS(L6480s_Get,get, .)
+
+#endif

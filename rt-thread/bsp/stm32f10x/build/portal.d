@@ -9,6 +9,3 @@
 .\build\portal.o: ..\..\include\rtthread.h
 .\build\portal.o: ..\..\components\drivers\include\rtdevice.h
 .\build\portal.o: ..\..\components\drivers\include\drivers/serial.h
-.\build\portal.o: ..\..\components\drivers\include\drivers/pin.h
-.\build\portal.o: ..\..\components\drivers\include\rtdevice.h
-.\build\portal.o: ..\..\components\drivers\include\drivers/can.h

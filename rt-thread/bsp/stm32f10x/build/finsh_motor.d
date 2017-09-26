@@ -1,4 +1,4 @@
-.\build\finsh_motor.o: ..\..\myRTT\finsh_motor.c
+.\build\finsh_motor.o: ..\..\myFinsh\finsh_motor.c
 .\build\finsh_motor.o: ..\..\include\rtthread.h
 .\build\finsh_motor.o: .\rtconfig.h
 .\build\finsh_motor.o: ..\..\include\rtdebug.h

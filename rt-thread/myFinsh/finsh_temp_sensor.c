@@ -1,8 +1,6 @@
-#include <rtthread.h>
-#include <finsh.h>
-#include <stdio.h>
+#include "finsh_cmd.h"
 
-#include "ds18b20.h"
+#ifdef DS18B20_USED
 
 void get_temp(void)
 {
@@ -12,3 +10,5 @@ void get_temp(void)
 	
 }
 FINSH_FUNCTION_EXPORT(get_temp,.)
+
+#endif

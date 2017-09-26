@@ -10,6 +10,3 @@
 .\build\workqueue.o: ..\..\include\rtthread.h
 .\build\workqueue.o: ..\..\components\drivers\include\rtdevice.h
 .\build\workqueue.o: ..\..\components\drivers\include\drivers/serial.h
-.\build\workqueue.o: ..\..\components\drivers\include\drivers/pin.h
-.\build\workqueue.o: ..\..\components\drivers\include\rtdevice.h
-.\build\workqueue.o: ..\..\components\drivers\include\drivers/can.h

@@ -22,25 +22,22 @@ Dialog DLL:      TCM.DLL V1.27.0.0
  
 <h2>Project:</h2>
 E:\MyCode\stm32f10x_std3.5_mdk\rt-thread\bsp\stm32f10x\project.uvprojx
-Project File Date:  09/21/2017
+Project File Date:  09/23/2017
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 4 (build 422)', folder: 'D:\Keil\MDK\ARM\ARMCC\Bin'
 Build target 'rtthread-stm32'
-compiling at24cxx.c...
-compiling finsh_eeprom.c...
-..\..\myRTT\finsh_eeprom.c(114): warning:  #1-D: last line of file ends without a newline
-  //
-..\..\myRTT\finsh_eeprom.c(18): warning:  #177-D: function "at24lc04_reads"  was declared but never referenced
-  static uint8_t at24lc04_reads(uint16_t address)
-..\..\myRTT\finsh_eeprom.c(46): warning:  #177-D: function "at24lc04_writes"  was declared but never referenced
-  static uint8_t at24lc04_writes(uint8_t address,char *data)
-..\..\myRTT\finsh_eeprom.c: 3 warnings, 0 errors
+compiling TM1638.c...
+..\..\..\Libraries\myLib\LedDriver\TM1638.c(99): warning:  #177-D: function "tm1638_setBrightness"  was declared but never referenced
+  static void tm1638_setBrightness(tm1638_t dev, char brightness)
+..\..\..\Libraries\myLib\LedDriver\TM1638.c(108): warning:  #177-D: function "TM1638_setDisplay"  was declared but never referenced
+  static void TM1638_setDisplay(tm1638_t dev, u8 on)
+..\..\..\Libraries\myLib\LedDriver\TM1638.c: 2 warnings, 0 errors
 linking...
-Program Size: Code=87232 RO-data=7788 RW-data=1836 ZI-data=10108  
+Program Size: Code=54276 RO-data=3044 RW-data=1564 ZI-data=5748  
 FromELF: creating hex file...
 After Build - User command #1: fromelf --bin .\build\rtt_inc.axf --output rtthread.bin
-".\build\rtt_inc.axf" - 0 Error(s), 3 Warning(s).
+".\build\rtt_inc.axf" - 0 Error(s), 2 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   .\RTE\_rtthread-stm32
