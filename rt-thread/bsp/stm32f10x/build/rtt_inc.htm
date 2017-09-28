@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\build\rtt_inc.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\build\rtt_inc.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Mon Sep 25 18:22:27 2017
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Thu Sep 28 16:35:47 2017
 <BR><P>
 <H3>Maximum Stack Usage =        640 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -3480,11 +3480,12 @@ Global Symbols
 <LI><a href="#[0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hc595_init
 </UL>
 
-<P><STRONG><a name="[23a]"></a>pinSet</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, mcu_gpio.o(.text))
+<P><STRONG><a name="[239]"></a>pinSet</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, mcu_gpio.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hc595_updata
+<LI><a href="#[0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hc595_init
 </UL>
 
-<P><STRONG><a name="[239]"></a>pinReset</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, mcu_gpio.o(.text))
+<P><STRONG><a name="[23a]"></a>pinReset</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, mcu_gpio.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hc595_updata
 <LI><a href="#[1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hc595_write
 </UL>
@@ -3515,10 +3516,11 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> finsh_display.o(FSymTab)
 </UL>
-<P><STRONG><a name="[0]"></a>hc595_init</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, 74hc595.o(.text))
+<P><STRONG><a name="[0]"></a>hc595_init</STRONG> (Thumb, 58 bytes, Stack size 8 bytes, 74hc595.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 240<LI>Call Chain = hc595_init &rArr; pinMode &rArr; GPIO_Init &rArr; assert_failed &rArr; rt_kprintf &rArr; rt_vsnprintf &rArr; print_number
 </UL>
 <BR>[Calls]<UL><LI><a href="#[237]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinMode
+<LI><a href="#[239]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinSet
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> 74hc595.o(.data)
 </UL>
@@ -3526,7 +3528,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = hc595_write &rArr; shift_out
 </UL>
 <BR>[Calls]<UL><LI><a href="#[234]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shift_out
-<LI><a href="#[239]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinReset
+<LI><a href="#[23a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinReset
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> 74hc595.o(.data)
 </UL>
@@ -3534,8 +3536,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = hc595_updata &rArr; delay_us
 </UL>
 <BR>[Calls]<UL><LI><a href="#[233]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
-<LI><a href="#[239]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinReset
-<LI><a href="#[23a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinSet
+<LI><a href="#[23a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinReset
+<LI><a href="#[239]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinSet
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> 74hc595.o(.data)
 </UL>

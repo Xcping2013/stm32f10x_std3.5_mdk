@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\OBJ\MB1616007_B188&B235.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\MB1616007_B188&B235.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Fri Sep 22 19:05:47 2017
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Tue Sep 26 16:20:34 2017
 <BR><P>
 <H3>Maximum Stack Usage =        640 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -576,10 +576,11 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> 74hc165.o(.data)
 </UL>
-<P><STRONG><a name="[6]"></a>hc595_init</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, 74hc595.o(.text))
+<P><STRONG><a name="[6]"></a>hc595_init</STRONG> (Thumb, 58 bytes, Stack size 8 bytes, 74hc595.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = hc595_init &rArr; pinMode &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinMode
+<BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinSet
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinMode
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> 74hc595.o(.data)
 </UL>
@@ -797,6 +798,7 @@ Global Symbols
 <LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SoftI2c_stop
 <LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SoftI2c_start
 <LI><a href="#[8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hc595_updata
+<LI><a href="#[6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hc595_init
 <LI><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hc165_read
 <LI><a href="#[4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hc165_init
 </UL>

@@ -95,6 +95,7 @@
 ".\build\isl29125.o"
 ".\build\ds18b20.o"
 ".\build\l6480.o"
+".\build\tmc429.o"
 ".\build\textlcd.o"
 ".\build\tm1638.o"
 ".\build\dido.o"

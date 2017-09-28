@@ -17,12 +17,14 @@ int main(void)
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
 
 	delay_init();	 
+	
+	Out.init();
+	Int.init();
+	
 	uart_init(115200);	 	
  	 		
 	pinMode(&SYS_LED, GPIO_Mode_Out_PP);
-	
-	Int.init();
-	Out.init();
+		
 	printf("mcu init ok ; ");	
 	
 	eeprom_init();

@@ -22,19 +22,20 @@ Dialog DLL:      TCM.DLL V1.27.0.0
  
 <h2>Project:</h2>
 E:\MyCode\stm32f10x_std3.5_mdk\rt-thread\bsp\stm32f10x\project.uvprojx
-Project File Date:  09/23/2017
+Project File Date:  09/26/2017
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 4 (build 422)', folder: 'D:\Keil\MDK\ARM\ARMCC\Bin'
 Build target 'rtthread-stm32'
-compiling TM1638.c...
-..\..\..\Libraries\myLib\LedDriver\TM1638.c(99): warning:  #177-D: function "tm1638_setBrightness"  was declared but never referenced
-  static void tm1638_setBrightness(tm1638_t dev, char brightness)
-..\..\..\Libraries\myLib\LedDriver\TM1638.c(108): warning:  #177-D: function "TM1638_setDisplay"  was declared but never referenced
-  static void TM1638_setDisplay(tm1638_t dev, u8 on)
-..\..\..\Libraries\myLib\LedDriver\TM1638.c: 2 warnings, 0 errors
+compiling 74HC595.c...
+compiling TMC429.c...
+..\..\..\Libraries\myLib\motion\TMC429.c(350): warning:  #177-D: function "Set429SwitchMode"  was declared but never referenced
+  static void Set429SwitchMode(tmc429_t dev, UCHAR Axis, UCHAR SwitchMode)
+..\..\..\Libraries\myLib\motion\TMC429.c(429): warning:  #177-D: function "HardStop"  was declared but never referenced
+  static void HardStop(tmc429_t dev, UINT Motor)
+..\..\..\Libraries\myLib\motion\TMC429.c: 2 warnings, 0 errors
 linking...
-Program Size: Code=54276 RO-data=3044 RW-data=1564 ZI-data=5748  
+Program Size: Code=54300 RO-data=3044 RW-data=1564 ZI-data=5748  
 FromELF: creating hex file...
 After Build - User command #1: fromelf --bin .\build\rtt_inc.axf --output rtthread.bin
 ".\build\rtt_inc.axf" - 0 Error(s), 2 Warning(s).
@@ -44,7 +45,7 @@ After Build - User command #1: fromelf --bin .\build\rtt_inc.axf --output rtthre
   D:\Keil\MDK\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:07
+Build Time Elapsed:  00:00:24
 </pre>
 </body>
 </html>

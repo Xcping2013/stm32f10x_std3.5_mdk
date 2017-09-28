@@ -17,6 +17,10 @@ void hc595_init(void)
 	pinMode(hc595.dat_pin,GPIO_Mode_Out_PP);
 	pinMode(hc595.clk_pin,GPIO_Mode_Out_PP);
 	pinMode(hc595.lck_pin,GPIO_Mode_Out_PP);
+	
+	pinSet(hc595.dat_pin);
+	pinSet(hc595.clk_pin);
+	pinSet(hc595.lck_pin);
 }
 
 //Updates the output register
