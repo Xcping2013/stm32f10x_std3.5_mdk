@@ -28,10 +28,10 @@ int main(void)
 	printf("mcu init ok ; ");	
 	
 	eeprom_init();
-	
+		
 	if(at24cxx.readU8(at24c256, 16383)==0)
 	{
-		printf("eeprom is inited ; fixture for B188 init ok\r\n>>");
+		printf("eeprom is inited ; Fixture Type=ShoeBox and OS\r\n>>");
 	}
 	else if(at24cxx.readU8(at24c256, 16383)==1)
 	{
@@ -41,13 +41,19 @@ int main(void)
 		Out.write(3, 0);	Out.write(4, 1);						//P2ÓÒ±ß×¦×Ó±ÕºÏ
 		Out.write(5, 0);	Out.write(6, 1);						//P3×ó±ß×¦×Ó±ÕºÏ
 		Out.write(7, 0);	Out.write(8, 1);	
-		printf("eeprom is inited ; fixture for B235 init ok\r\n>>");
+		printf("eeprom is inited ; Fixture Type=BQT1\r\n>>");
+	}
+	else if(at24cxx.readU8(at24c256, 16383)==2)
+	{
+		//B288 QT1
+		Out.write(10, 1);printf("Fixture Type=HEAT\r\n>>");
 	}
 	else 
 	{
 		at24cxx.writeU8(at24c256, 16383, 0);	
 		printf("eeprom init...\r\n>>");
 	}
+	
 	BlinkDelay=GetSysTimer();
 	
 	while(1)

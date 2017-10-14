@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\OBJ\MB1616007_B188&B235.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\MB1616007_B188&B235.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Tue Sep 26 16:20:34 2017
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Sat Oct 14 13:32:46 2017
 <BR><P>
 <H3>Maximum Stack Usage =        640 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -423,7 +423,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_exit
 </UL>
 
-<P><STRONG><a name="[99]"></a>main</STRONG> (Thumb, 314 bytes, Stack size 32 bytes, main.o(.text))
+<P><STRONG><a name="[99]"></a>main</STRONG> (Thumb, 364 bytes, Stack size 32 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 640 + Unknown Stack Size
 <LI>Call Chain = main &rArr; CommandCheckAndExe &rArr; ProcessCommand &rArr; CMD_rom &rArr; strtod &rArr; __strtod_int &rArr; _local_sscanf &rArr; _scanf_real &rArr; _scanf_really_real &rArr; _fp_value &rArr; _btod_etento &rArr; _btod_emul &rArr; _e2e
 </UL>
@@ -474,18 +474,19 @@ Global Symbols
 </UL>
 <P><STRONG><a name="[15a]"></a>SystemCoreClockUpdate</STRONG> (Thumb, 142 bytes, Stack size 8 bytes, system_stm32f10x.o(.text), UNUSED)
 
-<P><STRONG><a name="[a7]"></a>CommandCheckAndExe</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, commands.o(.text))
+<P><STRONG><a name="[a7]"></a>CommandCheckAndExe</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, commands.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 608 + Unknown Stack Size
 <LI>Call Chain = CommandCheckAndExe &rArr; ProcessCommand &rArr; CMD_rom &rArr; strtod &rArr; __strtod_int &rArr; _local_sscanf &rArr; _scanf_real &rArr; _scanf_really_real &rArr; _fp_value &rArr; _btod_etento &rArr; _btod_emul &rArr; _e2e
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ProcessCommand
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MakeLowercase
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__c89printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[b7]"></a>CMD_int</STRONG> (Thumb, 198 bytes, Stack size 24 bytes, user_cmd_fun.o(.text))
+<P><STRONG><a name="[b6]"></a>CMD_int</STRONG> (Thumb, 198 bytes, Stack size 24 bytes, user_cmd_fun.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 168 + Unknown Stack Size
 <LI>Call Chain = CMD_int &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -497,7 +498,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ProcessCommand
 </UL>
 
-<P><STRONG><a name="[b8]"></a>CMD_out</STRONG> (Thumb, 250 bytes, Stack size 24 bytes, user_cmd_fun.o(.text))
+<P><STRONG><a name="[b7]"></a>CMD_out</STRONG> (Thumb, 250 bytes, Stack size 24 bytes, user_cmd_fun.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 168 + Unknown Stack Size
 <LI>Call Chain = CMD_out &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -517,7 +518,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[b6]"></a>CMD_fsn</STRONG> (Thumb, 292 bytes, Stack size 120 bytes, user_cmd_fun.o(.text))
+<P><STRONG><a name="[b5]"></a>CMD_fsn</STRONG> (Thumb, 292 bytes, Stack size 120 bytes, user_cmd_fun.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 264 + Unknown Stack Size
 <LI>Call Chain = CMD_fsn &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -530,7 +531,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ProcessCommand
 </UL>
 
-<P><STRONG><a name="[b5]"></a>CMD_rom</STRONG> (Thumb, 486 bytes, Stack size 120 bytes, user_cmd_fun.o(.text))
+<P><STRONG><a name="[b4]"></a>CMD_rom</STRONG> (Thumb, 486 bytes, Stack size 120 bytes, user_cmd_fun.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 560 + Unknown Stack Size
 <LI>Call Chain = CMD_rom &rArr; strtod &rArr; __strtod_int &rArr; _local_sscanf &rArr; _scanf_real &rArr; _scanf_really_real &rArr; _fp_value &rArr; _btod_etento &rArr; _btod_emul &rArr; _e2e
 </UL>
@@ -544,7 +545,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ProcessCommand
 </UL>
 
-<P><STRONG><a name="[b9]"></a>CMD_RomPage</STRONG> (Thumb, 274 bytes, Stack size 120 bytes, user_cmd_fun.o(.text))
+<P><STRONG><a name="[b8]"></a>CMD_RomPage</STRONG> (Thumb, 274 bytes, Stack size 120 bytes, user_cmd_fun.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 264 + Unknown Stack Size
 <LI>Call Chain = CMD_RomPage &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -1495,11 +1496,11 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_char_file
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_rom
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_out
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_int
-<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_fsn
-<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_RomPage
+<BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_rom
+<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_out
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_int
+<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_fsn
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_RomPage
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ProcessCommand
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PrintCommandlist
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_sw
@@ -1549,29 +1550,29 @@ Global Symbols
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_errno_addr
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_ctype_table
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_rom
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_out
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_int
-<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_RomPage
+<BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_rom
+<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_out
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_int
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_RomPage
 </UL>
 
 <P><STRONG><a name="[bd]"></a>strlen</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, strlen.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = strlen
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_rom
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_out
-<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_fsn
-<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_RomPage
+<BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_rom
+<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_out
+<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_fsn
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_RomPage
 </UL>
 
 <P><STRONG><a name="[bb]"></a>strncmp</STRONG> (Thumb, 150 bytes, Stack size 16 bytes, strncmp.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = strncmp
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_rom
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_out
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_int
-<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_fsn
-<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_RomPage
+<BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_rom
+<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_out
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_int
+<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_fsn
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_RomPage
 </UL>
 
 <P><STRONG><a name="[a5]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text))
@@ -1585,9 +1586,9 @@ Global Symbols
 <LI><a href="#[e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AT24CXX_ReadU16
 <LI><a href="#[d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AT24CXX_WriteU8
 <LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AT24CXX_ReadU8
-<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_rom
-<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_fsn
-<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_RomPage
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_rom
+<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_fsn
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_RomPage
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ProcessCommand
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PrintCommandlist
 <LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eeprom_init
@@ -1601,8 +1602,8 @@ Global Symbols
 <P><STRONG><a name="[1a8]"></a>_memcpy_lastbytes_aligned</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memcpy_w.o(.text), UNUSED)
 
 <P><STRONG><a name="[ac]"></a>strcmp</STRONG> (Thumb, 128 bytes, Stack size 0 bytes, strcmpv7m.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_int
-<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_fsn
+<BR><BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_int
+<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_fsn
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ProcessCommand
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_help
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_sw
@@ -2175,7 +2176,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__strtod_int
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_rom
+<BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_rom
 </UL>
 
 <P><STRONG><a name="[65]"></a>_get_lc_ctype</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, lc_ctype_c.o(locale$$code))
@@ -2330,8 +2331,8 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
 </UL>
 
-<P><STRONG><a name="[b4]"></a>MakeLowercase</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, commands.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ProcessCommand
+<P><STRONG><a name="[b9]"></a>MakeLowercase</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, commands.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CommandCheckAndExe
 </UL>
 
 <P><STRONG><a name="[ab]"></a>CMD_X2B_TEST</STRONG> (Thumb, 728 bytes, Stack size 8 bytes, commands.o(.text))
@@ -2404,22 +2405,21 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ProcessCommand
 </UL>
 
-<P><STRONG><a name="[b3]"></a>ProcessCommand</STRONG> (Thumb, 248 bytes, Stack size 40 bytes, commands.o(.text))
+<P><STRONG><a name="[b3]"></a>ProcessCommand</STRONG> (Thumb, 288 bytes, Stack size 40 bytes, commands.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 600 + Unknown Stack Size
 <LI>Call Chain = ProcessCommand &rArr; CMD_rom &rArr; strtod &rArr; __strtod_int &rArr; _local_sscanf &rArr; _scanf_real &rArr; _scanf_really_real &rArr; _fp_value &rArr; _btod_etento &rArr; _btod_emul &rArr; _e2e
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_rom
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_out
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_int
-<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_fsn
-<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_RomPage
+<BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_rom
+<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_out
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_int
+<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_fsn
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_RomPage
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_help
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_sw
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_hw
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_GetSensorStatus
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_AirControl
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMD_X2B_TEST
-<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MakeLowercase
 <LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf

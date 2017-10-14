@@ -39,6 +39,8 @@ void CommandCheckAndExe(void)
 	{		
 		len=USART_RX_STA&0x3fff;							//得到此次接收到的数据长度
 		USART_RX_BUF[len]='\0';								//在末尾加入结束符. 
+		
+		MakeLowercase(USART_RX_BUF);
 		printf((char*)USART_RX_BUF);
 		if(USART_RX_BUF[0]=='\0')									;
 		else ProcessCommand((char*)USART_RX_BUF)	;				
@@ -49,9 +51,10 @@ void CommandCheckAndExe(void)
 //
 uint8_t  ProcessCommand(char  *Commands)
 {
-	MakeLowercase(Commands);	
-	if			(strcmp("switch to b188",	Commands )==0)		{at24cxx.writeU8(at24c256, 16383, 0);	 return 1;}
-	else 	if(strcmp("switch to b235", Commands )==0)		{at24cxx.writeU8(at24c256, 16383, 1);	 return 1;}
+	//MakeLowercase(Commands);	
+	if			(strcmp("switch to os",	Commands )==0)		{at24cxx.writeU8(at24c256, 16383, 0);	 return 1;}
+	else 	if(strcmp("switch to bqt1", Commands )==0)		{at24cxx.writeU8(at24c256, 16383, 1);	 return 1;}
+	else 	if(strcmp("switch to heat", Commands )==0)		{at24cxx.writeU8(at24c256, 16383, 2);	 return 1;}
 	
 	else  if(CMD_help(Commands)==1)									return 1;
 	else  if(CMD_rom(Commands)==1)									return 1;	
